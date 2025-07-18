@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GYTN Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: white;
+    }
+
+    .top-bar {
+      background-color: #0d0d0d;
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000;
+      padding: 15px 20px;
+      position: relative;
+    }
+
+    .logo {
+      font-weight: bold;
+      color: #00ff6a;
+      font-size: 24px;
+    }
+
+    nav {
+      display: flex;
+      gap: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 10px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ff6a;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .whatsapp-btn {
+      background-color: #00ff6a;
+      padding: 6px 12px;
+      color: #000;
+      border-radius: 5px;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    /* Hero section */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .buttons {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .buttons button {
+      background-color: #00ff6a;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      color: black;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .buttons button:hover {
+      background-color: #00cc55;
+    }
+
+    .heading {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    .heading h2 {
+      font-size: 28px;
+      color: #00ff6a;
+    }
+
+
+
+
+/* Profile Section */
+.profile-section {
+  padding: 40px 20px;
+  background: #000;
+  color: white;
+}
+
+.profile-section .container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.profile-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #ccc;
+}
+
+.profile-section h2 {
+  text-align: center;
+  font-size: 30px;
+  color: #00ff6a;
+  margin: 40px 0 20px;
+}
+
+/* Card Grid */
+.profile-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual Card */
+.profile-card {
+  background: #111;
+  border-radius: 10px;
+  width: 250px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+}
+
+.profile-card img.profile-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.profile-card h3 {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 5px;
+}
+
+.profile-card .stars {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.profile-card .stars span {
+  color: gold;
+}
+
+.profile-card .stars .rating {
+  margin-left: 8px;
+  color: #ccc;
+}
+
+.profile-card p {
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+
+
+
+
+
+
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 10px 0;
+        display: none;
+        background: none;
+      }
+
+      nav a {
+        padding: 8px 20px;
+        width: 100%;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+        margin-left: auto;
+      }
+
+      .nav-right {
+        display: none;
+      }
+    }
+
+
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    h2.title {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #10ff8b;
+    }
+
+    h2.title span {
+      color: #00ffff;
+    }
+
+    p.description {
+      color: #ccc;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    /* Testimonials */
+    .section-title {
+      font-size: 22px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: #10ff8b;
+    }
+
+    .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .testimonial {
+      background: #111;
+      border: 1px solid #333;
+      padding: 20px;
+      flex: 1 1 300px;
+      border-radius: 10px;
+    }
+
+    .testimonial h4 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .testimonial p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    /* Tags */
+    .tags {
+      margin-top: 40px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background: #10ff8b;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* Disclaimer */
+    .disclaimer {
+      background: #10ff8b;
+      color: #000;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* Footer */
+    .footer {
+      background: #10ff8b;
+      padding: 40px 20px;
+      color: #fdfdfd;
+      font-size: 14px;
+    }
+
+    .footer .columns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-column {
+      flex: 1 1 150px;
+    }
+
+    .footer-column h5 {
+      color: #fff;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 13px;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .testimonials {
+        flex-direction: column;
+      }
+
+      .footer .columns {
+        flex-direction: column;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Email Bar -->
+  <div class="top-bar">
+    Email : gytn@gmail.com
+  </div>
+
+  <!-- Navigation -->
+  <div class="navbar">
+    <div class="logo">GYTN</div>
+
+    <div class="hamburger" onclick="toggleMenu()" style="margin-left: auto;">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="navMenu">
+      <a href="indx.html">Home</a>
+      <a href="escort.html">Escorts</a>
+      <a href="#">Services</a>
+      <a href="#">Hotels</a>
+      <a href="#">Location</a>
+      <a href="#">Categories</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact Us</a>
+    </nav>
+
+    <div class="nav-right">
+      <a class="whatsapp-btn" href="https://wa.me/91236597994">+91236597994</a>
+    </div>
+  </div>
+
+  <!-- Hero Image Section -->
+  <div class="hero" style="background-image: url('a69c48219daa169c93601c73a71d32f55b8fec68\ \(1\).png');">
+    <div class="buttons">
+      <button>Call Number</button>
+      <button>WhatsApp Number</button>
+    </div>
+  </div>
+
+
+
+  <!-- Title and Intro Section -->
+<section style="padding: 40px 20px; background: #000; color: white; text-align: center;">
+  <h2 style="color: #00ff6a; font-size: 26px; margin-bottom: 20px;">Safe & Sensual Escort Services in Gurgaon </h2>
+  <div style="max-width: 900px; margin: auto; text-align: left;">
+    <p style="color: #ccc; line-height: 1.7; margin-bottom: 15px;">
+      In today’s fast-paced world, balancing work, personal life, and social commitments can be overwhelming—often leaving little room for meaningful companionship. At GYTN, we aim to fill that gap by offering elite escort services in Gurgaon, designed to help you unwind and enjoy great company.
+    </p>
+    <p style="color: #ccc; line-height: 1.7; margin-bottom: 15px;">
+      Whether you're in the mood for a casual coffee outing, a dinner date, or simply someone to share your time with, our exclusive selection of independent escorts, Russian models, and high-profile companions are just a call away. These stunning ladies are not only visually captivating but also bring charm, charisma, and excitement wherever they go.
+    </p>
+    <p style="color: #ccc; line-height: 1.7;">
+      Our services are available 24/7—no matter the hour, even if it’s 1:30 AM on a restless Saturday night. Whenever you’re seeking quality companionship in Gurgaon, GYTN is here to make sure you never feel alone.
+    </p>
+  </div>
+</section>
+
+<!-- Services Offered Section -->
+<section style="padding: 40px 20px; background: #000; color: white;">
+  <h2 style="text-align: center; color: #00ff6a; font-size: 24px; margin-bottom: 30px;">Services Offered</h2>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1200px; margin: auto;">
+    
+    <!-- Card 1 -->
+    <div style="flex: 1 1 280px; background: #111; padding: 15px; border-radius: 10px;">
+      <img src="1.png" alt="Service" style="width: 100%; border-radius: 8px; margin-bottom: 10px;" />
+      <h3 style="color: #00ff6a; font-size: 16px;">Girlfriend Experience</h3>
+      <p style="color: #ccc; font-size: 14px; line-height: 1.6;">Immerse yourself in the experience of real emotional bonding, comfort, and companionship with our elite GFE services.</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div style="flex: 1 1 280px; background: #111; padding: 15px; border-radius: 10px;">
+      <img src="1.png" alt="Service" style="width: 100%; border-radius: 8px; margin-bottom: 10px;" />
+      <h3 style="color: #00ff6a; font-size: 16px;">Erotic Massage</h3>
+      <p style="color: #ccc; font-size: 14px; line-height: 1.6;">Experience body-to-body relaxation with sensual, professional massages tailored to elevate your mood and comfort.</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div style="flex: 1 1 280px; background: #111; padding: 15px; border-radius: 10px;">
+      <img src="1.png" alt="Service" style="width: 100%; border-radius: 8px; margin-bottom: 10px;" />
+      <h3 style="color: #00ff6a; font-size: 16px;">24/7 Available</h3>
+      <p style="color: #ccc; font-size: 14px; line-height: 1.6;">Day or night, our top companions in Gurgaon are available around the clock, even for last-minute bookings or urgent needs.</p>
+    </div>
+
+    <!-- Card 4 -->
+    <div style="flex: 1 1 280px; background: #111; padding: 15px; border-radius: 10px;">
+      <img src="1.png" alt="Service" style="width: 100%; border-radius: 8px; margin-bottom: 10px;" />
+      <h3 style="color: #00ff6a; font-size: 16px;">Call In and Out Services</h3>
+      <p style="color: #ccc; font-size: 14px; line-height: 1.6;">Visit us at our place or enjoy comfort at yours. Our escorts offer both in-call and out-call options to suit your preferences.</p>
+    </div>
+
+    
+  </div>
+</section>
+<!-- Sensual Escort Services Section -->
+<section style="background-color: #000; padding: 60px 20px;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-direction: column; gap: 60px;">
+
+    <!-- Block 1 -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px;">
+      <img src="1.png" alt="escort" style="flex: 1 1 220px; max-width: 220px; border-radius: 8px;">
+      <div style="flex: 2 1 500px;">
+        <h3 style="color: #00ff88; font-size: 20px; font-weight: bold; margin-bottom: 15px;">
+          Premium Gurgaon Escorts for Full-Night Sensual Companionship
+        </h3>
+        <p style="color: #ccc; font-size: 14px; line-height: 1.7; margin-bottom: 20px;">
+          Feeling lonely or emotionally drained? Longing for a passionate connection with someone who truly understands your desires? Our elite Gurgaon escorts are here to fulfill your deepest fantasies and provide unforgettable intimate experiences. Handpicked for their charm, beauty, and intelligence, these high-profile companions are dedicated to making your nights vibrant, exciting, and completely satisfying. Indulge in the ultimate pleasure with the finest escorts Gurgaon has to offer.
+        </p>
+      </div>
+    </div>
+
+    <!-- Block 2 -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px; flex-direction: row-reverse;">
+      <img src="1.png" alt="escort" style="flex: 1 1 220px; max-width: 220px; border-radius: 8px;">
+      <div style="flex: 2 1 500px;">
+        <p style="color: #ccc; font-size: 14px; line-height: 1.7;">
+          These exceptional women are here to bring excitement and pleasure into your intimate life. With their irresistible charm and passionate nature, they promise an experience that goes beyond expectations. When you choose one of our elite escorts as your companion, expect passionate seduction and unforgettable moments in Gurgaon.<br><br>
+
+          Let these stunning ladies become a part of your love life—ready to explore your fantasies, indulge your desires, and create passionate encounters filled with thrill and sensuality. Eager, curious, and devoted to your pleasure, they’re waiting to turn your night into an intoxicating adventure.
+        </p>
+      </div>
+    </div>
+
+    <!-- Block 3 -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px;">
+      <img src="1.png" alt="escort" style="flex: 1 1 220px; max-width: 220px; border-radius: 8px;">
+      <div style="flex: 2 1 500px;">
+        <h3 style="color: #00ff88; font-size: 20px; font-weight: bold; margin-bottom: 15px;">
+          Effortless, Safe & Top-Tier Escort Services in Gurgaon
+        </h3>
+        <p style="color: #ccc; font-size: 14px; line-height: 1.7; margin-bottom: 20px;">
+          Escort services in Gurgaon are in high demand—and for good reason. Many discerning gentlemen seek out elite companionship to add excitement, pleasure, and connection to their lives. At the helm of the most desired services in the city, our premium female escorts are those who reign supreme in the living room and the bedroom.<br><br>
+
+          Known not just for their vibrant nightlife, the city now offers a premium experience through our exceptional escort services.
+        </p>
+      </div>
+    </div>
+
+    <!-- Block 4 -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px; flex-direction: row-reverse;">
+      <img src="1.png" alt="escort" style="flex: 1 1 220px; max-width: 220px; border-radius: 8px;">
+      <div style="flex: 2 1 500px;">
+        <p style="color: #ccc; font-size: 14px; line-height: 1.7;">
+          At GYTN, we make it easy and convenient for you to enjoy these luxurious moments. Simply browse our gallery, pick the companion that suits your tastes, and our dedicated team will help you schedule an appointment effortlessly. With complete professionalism and extraordinary service, we answer your questions, provide guidance, and ensure the experience is smooth, private, and personally memorable.<br><br>
+
+          Enjoy top-tier escort services anytime, anywhere in Gurgaon—delivered with discretion, safety, and the utmost care.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Glamorous Escort Services Section -->
+<section style="background-color: #000; padding: 60px 20px;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-direction: column; gap: 60px;">
+
+    <!-- Block 1 -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px;">
+      <img src="1.png" alt="escort" style="flex: 1 1 220px; max-width: 220px; border-radius: 8px;">
+      <div style="flex: 2 1 500px;">
+        <h3 style="color: #00ccff; font-size: 20px; font-weight: bold; margin-bottom: 15px;">
+          Stunning Model Escorts Offering Premium & Unforgettable Experiences in Gurgaon
+        </h3>
+        <p style="color: #ccc; font-size: 14px; line-height: 1.7; margin-bottom: 20px;">
+          Looking for a truly elite escort experience in Gurgaon? Our stunning model escorts are here to exceed your expectations with their irresistible beauty, charm, and grace. These glamorous women are not only visually captivating but also intelligent, elegant, and exceptionally well-versed in the art of companionship.
+        </p>
+      </div>
+    </div>
+
+    <!-- Block 2 -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px; flex-direction: row-reverse;">
+      <img src="1.png" alt="escort" style="flex: 1 1 220px; max-width: 220px; border-radius: 8px;">
+      <div style="flex: 2 1 500px;">
+        <p style="color: #ccc; font-size: 14px; line-height: 1.7;">
+          Beyond companionship, our escorts are passionate about making you feel comfortable, relaxed, and deeply satisfied. They offer full privacy and are attentive to your desires, ensuring an experience that is not only sensual but also emotionally fulfilling. From intimate moments and playful fantasies to exotic adventures such as strip teases, lap dances, hot play, threesomes, and more—your satisfaction is always their priority.<br><br>
+
+          Discover the most exotic and fulfilling escort services in Gurgaon, where every moment is designed to be memorable.
+        </p>
+      </div>
+    </div>
+
+    <!-- Block 3 -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px;">
+      <img src="1.png" alt="escort" style="flex: 1 1 220px; max-width: 220px; border-radius: 8px;">
+      <div style="flex: 2 1 500px;">
+        <h3 style="color: #00ff88; font-size: 20px; font-weight: bold; margin-bottom: 15px;">
+          Elite Model Escorts Available 24/7 for Premium Companionship in Gurgaon
+        </h3>
+        <p style="color: #ccc; font-size: 14px; line-height: 1.7; margin-bottom: 20px;">
+          By now, you’ve seen the wide range of premium Gurgaon escort services we offer—each one crafted to provide an unforgettable experience. Whether you’re looking for intimacy, excitement, or meaningful connection, our services are designed to exceed your expectations and ensure everything works in your favor.
+        </p>
+      </div>
+    </div>
+
+    <!-- Block 4 -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px; flex-direction: row-reverse;">
+      <img src="1.png" alt="escort" style="flex: 1 1 220px; max-width: 220px; border-radius: 8px;">
+      <div style="flex: 2 1 500px;">
+        <p style="color: #ccc; font-size: 14px; line-height: 1.7;">
+          Our exclusive model escorts are available 24/7, ready to accompany you wherever and whenever you desire. Time and place are never limitations—your satisfaction is our priority. Break free from your hectic routine and indulge in the pleasures of true companionship. Our escorts are skilled in building genuine, intimate connections that leave lasting impressions—without the weight of commitment.<br><br>
+
+          They offer heartfelt attention, authentic emotions, and an escape into a world where your fantasies become reality.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="container">
+    <h2 class="title">Discover Your Perfect Match for an <span>Unforgettable Night of Pleasure</span></h2>
+    <p class="description">
+      Ready to explore your wildest desires and overnight fantasies? Our stunning escorts are eager to meet, greet, and captivate you with their charm and sensuality. Whether you’re craving passion, playful trysts, or intimate companionship, we have the perfect match waiting for you.<br><br>
+      Don’t wait—connect with us now and let us introduce you to the girl who will make your night extraordinary. Just one call, and you're on your way to an experience filled with warmth, affection, and unforgettable moments.
+    </p>
+
+    <h3 class="section-title">Testimonials</h3>
+    <div class="testimonials">
+      <div class="testimonial">
+        <h4>💬 Ravi_Knight</h4>
+        <p>Had an incredible experience! Professional and respectful from start to finish. Highly recommended.</p>
+      </div>
+      <div class="testimonial">
+        <h4>💬 Kevin_Joyner</h4>
+        <p>Super smooth communication and the match was better than expected. Will be back again for sure.</p>
+      </div>
+      <div class="testimonial">
+        <h4>💬 Gerald_Sidney</h4>
+        <p>Perfect night! Everything was arranged exactly as promised. Couldn’t ask for more!</p>
+      </div>
+    </div>
+
+    <h3 class="section-title">Tags</h3>
+    <div class="tag-list">
+      <!-- Repeat tags -->
+      <span class="tag">Ajmer Local Listings</span>
+      <span class="tag">Ajmer Local Listings</span>
+      <span class="tag">Ajmer Local Listings</span>
+      <span class="tag">Ajmer Local Listings</span>
+      <span class="tag">Ajmer Local Listings</span>
+      <span class="tag">Ajmer Local Listings</span>
+      <span class="tag">Ajmer Local Listings</span>
+      <span class="tag">Ajmer Local Listings</span>
+      <span class="tag">Ajmer Local Listings</span>
+      <span class="tag">Ajmer Local Listings</span>
+      <span class="tag">Ajmer Local Listings</span>
+      <span class="tag">Ajmer Local Listings</span>
+      <span class="tag">Ajmer Local Listings</span>
+      <span class="tag">Ajmer Local Listings</span>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    At our platform, we are committed to maintaining a safe and respectful online environment. If you come across any content that you believe is abusive, misleading, offensive, illegal, or violates our terms of service, please report it to us immediately.
+  </div>
+
+  <div class="footer">
+    <div class="columns">
+      <div class="footer-column">
+        <h5>GTVN</h5>
+        <ul>
+          <li>About</li>
+          <li>Careers</li>
+          <li>Advertise</li>
+          <li>Support</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h5>Categories</h5>
+        <ul>
+          <li>Massage</li>
+          <li>Call Girls</li>
+          <li>Dating</li>
+          <li>Escort</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h5>Support</h5>
+        <ul>
+          <li>Contact Us</li>
+          <li>Terms of Use</li>
+          <li>Privacy Policy</li>
+          <li>Cookie Policy</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 GTVN. All rights reserved.
+    </div>
+  </div>

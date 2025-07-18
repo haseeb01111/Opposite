@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GYTN Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: white;
+    }
+
+    .top-bar {
+      background-color: #0d0d0d;
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000;
+      padding: 15px 20px;
+      position: relative;
+    }
+
+    .logo {
+      font-weight: bold;
+      color: #00ff6a;
+      font-size: 24px;
+    }
+
+    nav {
+      display: flex;
+      gap: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 10px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ff6a;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .whatsapp-btn {
+      background-color: #00ff6a;
+      padding: 6px 12px;
+      color: #000;
+      border-radius: 5px;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    /* Hero section */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 450px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .buttons {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .buttons button {
+      background-color: #00ff6a;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      color: black;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .buttons button:hover {
+      background-color: #00cc55;
+    }
+
+    .heading {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    .heading h2 {
+      font-size: 28px;
+      color: #00ff6a;
+    }
+
+
+
+
+/* Profile Section */
+.profile-section {
+  padding: 40px 20px;
+  background: #000;
+  color: white;
+}
+
+.profile-section .container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.profile-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #ccc;
+}
+
+.profile-section h2 {
+  text-align: center;
+  font-size: 30px;
+  color: #00ff6a;
+  margin: 40px 0 20px;
+}
+
+/* Card Grid */
+.profile-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual Card */
+.profile-card {
+  background: #111;
+  border-radius: 10px;
+  width: 250px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+}
+
+.profile-card img.profile-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.profile-card h3 {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 5px;
+}
+
+.profile-card .stars {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.profile-card .stars span {
+  color: gold;
+}
+
+.profile-card .stars .rating {
+  margin-left: 8px;
+  color: #ccc;
+}
+
+.profile-card p {
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+
+
+
+
+
+
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 10px 0;
+        display: none;
+        background: none;
+      }
+
+      nav a {
+        padding: 8px 20px;
+        width: 100%;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+        margin-left: auto;
+      }
+
+      .nav-right {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Email Bar -->
+  <div class="top-bar">
+    Email : gytn@gmail.com
+  </div>
+
+  <!-- Navigation -->
+  <div class="navbar">
+    <div class="logo">GYTN</div>
+
+    <div class="hamburger" onclick="toggleMenu()" style="margin-left: auto;">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="navMenu">
+      <a href="indx.html">Home</a>
+      <a href="escort.html">Escorts</a>
+      <a href="services.html">Services</a>
+      <a href="hotel.html">Hotels</a>
+      <a href="location.hml">Location</a>
+      <a href="#">Categories</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact Us</a>
+    </nav>
+
+    <div class="nav-right">
+      <a class="whatsapp-btn" href="https://wa.me/91236597994">+91236597994</a>
+    </div>
+  </div>
+
+  <!-- Hero Image Section -->
+  <div class="hero" style="background-image: url('a69c48219daa169c93601c73a71d32f55b8fec68\ \(1\).png');">
+    <div class="buttons">
+      <button>Call Number</button>
+      <button>WhatsApp Number</button>
+    </div>
+  </div>
+
+  <!-- Heading Below Image -->
+  <div class="heading">
+    <h2>Elite Gurgaon Companionship Services Available 24/7</h2>
+  </div>
+
+
+
+
+
+
+<section class="profile-section">
+  <div class="container">
+    <p>
+      Step into a world of charm and connection with GYTN’s premium escort services in Gurgaon. We offer a handpicked selection of sophisticated, independent female companions available around the clock for both in-call and out-call experiences. Each individual in our portfolio brings a unique blend of elegance, personality, and allure—ready to match your style and desires. Whether you seek warmth, comfort, or a discreet experience, GYTN provides a luxurious and tailored companionship service designed for your satisfaction.
+    </p>
+
+    <h2>Profile</h2>
+
+    <div class="profile-grid">
+      <!-- Card 1 -->
+      <div class="profile-card">
+        <img class="profile-img" src="1.png" alt="Priya" />
+        <div>
+          <h3>Priya 
+           
+          </h3>
+          <div class="stars">
+            <span>★ ★ ★ ★ ☆</span>
+            <span class="rating">4.2</span>
+          </div>
+          <p>
+            Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="profile-card">
+        <img class="profile-img" src="1.png" alt="Priya" />
+        <div>
+          <h3>Priya 
+        
+          </h3>
+          <div class="stars">
+            <span>★ ★ ★ ★ ☆</span>
+            <span class="rating">4.2</span>
+          </div>
+          <p>
+            Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="profile-card">
+        <img class="profile-img" src="1.png" alt="Priya" />
+        <div>
+          <h3>Priya 
+        
+          </h3>
+          <div class="stars">
+            <span>★ ★ ★ ★ ☆</span>
+            <span class="rating">4.2</span>
+          </div>
+          <p>
+            Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.
+          </p>
+
+
+
+          
+
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-grid">
+
+  <!-- Repeat this block 12 times, just change image and name if needed -->
+  <!-- Card 1 to Card 12 -->
+
+  <div class="profile-card">
+    <img class="profile-img" src="1.png" alt="Priya" />
+    <div>
+      <h3>Priya</h3>
+      <div class="stars">
+        <span>★ ★ ★ ★ ☆</span>
+        <span class="rating">4.2</span>
+      </div>
+      <p>Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.</p>
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <img class="profile-img" src="1.png" alt="Priya" />
+    <div>
+      <h3>Priya</h3>
+      <div class="stars">
+        <span>★ ★ ★ ★ ☆</span>
+        <span class="rating">4.2</span>
+      </div>
+      <p>Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.</p>
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <img class="profile-img" src="1.png" alt="Priya" />
+    <div>
+      <h3>Priya</h3>
+      <div class="stars">
+        <span>★ ★ ★ ★ ☆</span>
+        <span class="rating">4.2</span>
+      </div>
+      <p>Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.</p>
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <img class="profile-img" src="1.png" alt="Priya" />
+    <div>
+      <h3>Priya</h3>
+      <div class="stars">
+        <span>★ ★ ★ ★ ☆</span>
+        <span class="rating">4.2</span>
+      </div>
+      <p>Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.</p>
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <img class="profile-img" src="1.png" alt="Priya" />
+    <div>
+      <h3>Priya</h3>
+      <div class="stars">
+        <span>★ ★ ★ ★ ☆</span>
+        <span class="rating">4.2</span>
+      </div>
+      <p>Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.</p>
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <img class="profile-img" src="1.png" alt="Priya" />
+    <div>
+      <h3>Priya</h3>
+      <div class="stars">
+        <span>★ ★ ★ ★ ☆</span>
+        <span class="rating">4.2</span>
+      </div>
+      <p>Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.</p>
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <img class="profile-img" src="1.png" alt="Priya" />
+    <div>
+      <h3>Priya</h3>
+      <div class="stars">
+        <span>★ ★ ★ ★ ☆</span>
+        <span class="rating">4.2</span>
+      </div>
+      <p>Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.</p>
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <img class="profile-img" src="1.png" alt="Priya" />
+    <div>
+      <h3>Priya</h3>
+      <div class="stars">
+        <span>★ ★ ★ ★ ☆</span>
+        <span class="rating">4.2</span>
+      </div>
+      <p>Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.</p>
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <img class="profile-img" src="1.png" alt="Priya" />
+    <div>
+      <h3>Priya</h3>
+      <div class="stars">
+        <span>★ ★ ★ ★ ☆</span>
+        <span class="rating">4.2</span>
+      </div>
+      <p>Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.</p>
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <img class="profile-img" src="1.png" alt="Priya" />
+    <div>
+      <h3>Priya</h3>
+      <div class="stars">
+        <span>★ ★ ★ ★ ☆</span>
+        <span class="rating">4.2</span>
+      </div>
+      <p>Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.</p>
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <img class="profile-img" src="1.png" alt="Priya" />
+    <div>
+      <h3>Priya</h3>
+      <div class="stars">
+        <span>★ ★ ★ ★ ☆</span>
+        <span class="rating">4.2</span>
+      </div>
+      <p>Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.</p>
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <img class="profile-img" src="1.png" alt="Priya" />
+    <div>
+      <h3>Priya</h3>
+      <div class="stars">
+        <span>★ ★ ★ ★ ☆</span>
+        <span class="rating">4.2</span>
+      </div>
+      <p>Priya is a fiery enchantress who knows how to make every moment unforgettable. With her sultry looks and confident demeanor.</p>
+    </div>
+  </div>
+
+</div> <!-- ✅ Closing .profile-grid -->
+
+  </div>
+
+
+ 
+
+</section>
+
+
+
+
+<section class="profile-section">
+  <div class="container">
+
+    <div class="content-block">
+      <h2 style="color: #00ff6a; font-size: 24px; margin-bottom: 15px;">
+        Unforgettable Companionship Experiences in Gurgaon – Available Overnight
+      </h2>
+      <p style="color: #ccc; font-size: 15px; line-height: 1.8;">
+        At GYTN, we redefine your evenings with elegant, high-class companions who offer more than just beauty—they bring charisma, warmth, and an unforgettable connection. These sophisticated models are well-spoken, discreet, and masters of charm, making every moment with them feel naturally comforting and exciting. Whether you're seeking an engaging overnight presence or a sensual escape, our companions ensure complete privacy and a judgment-free experience tailored to your desires. Step into a world of luxurious intimacy—because you deserve nothing less.
+      </p>
+    </div>
+
+    <div class="content-block" style="margin-top: 40px;">
+      <h2 style="color: #00ff6a; font-size: 24px; margin-bottom: 15px;">
+        Endless Enjoyment with Premium Escort Services in Gurgaon
+      </h2>
+      <p style="color: #ccc; font-size: 15px; line-height: 1.8;">
+        At GYTN, we offer a diverse selection of elegant, independent escorts in Gurgaon—each with unique charm, education, and personality. Available 24/7, our companions cater to a variety of preferences and experiences, including massage therapy, companionship, and special couple services. Whether you're seeking a refined evening or an exciting encounter, our service packages are flexible, discreet, and tailored to meet your individual desires at your convenience.
+      </p>
+    </div>
+
+    <div class="content-block" style="margin-top: 40px;">
+      <h2 style="color: #00ff6a; font-size: 24px; margin-bottom: 15px;">
+        Elegant Independent Escorts in Gurgaon at Competitive Rates
+      </h2>
+      <p style="color: #ccc; font-size: 15px; line-height: 1.8;">
+        Discover the charm and sophistication of GYTN's elite independent escorts in Gurgaon. Known for their grace, beauty, and experience, our companions provide a premium, unforgettable experience. Whether you're seeking comfort, connection, or intimate companionship, these stunning women deliver with poise and warmth. With their natural allure and high standards of service, you can count on them for a truly satisfying and personalized encounter—all while maintaining full privacy and affordability.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="profile-section">
+  <div class="container">
+
+    <h2 style="color: #00ff6a; font-size: 24px; margin-bottom: 20px;">
+      Why Choose GYTN — Your Trusted Companion Service in Gurgaon
+    </h2>
+    <p style="color: #ccc; font-size: 15px; line-height: 1.8; margin-bottom: 20px;">
+      With many agencies out there, choosing the right one makes all the difference. GYTN stands out by prioritizing client safety, satisfaction, and discreet service. Here’s what makes us the preferred choice:
+    </p>
+
+    <ul style="color: #ccc; padding-left: 20px; margin-bottom: 20px;">
+      <li>• Carefully selected, well-groomed, and elegant companions</li>
+      <li>• Transparent and affordable pricing</li>
+      <li>• Total confidentiality through encrypted systems</li>
+      <li>• Easy and secure booking process</li>
+      <li>• Intelligent, charming, and professional escorts</li>
+      <li>• Round-the-clock availability for your convenience</li>
+    </ul>
+
+    <p style="color: #ccc; font-size: 15px; line-height: 1.8;">
+      Experience companionship that’s reliable, refined, and truly unforgettable—only at GYTN.
+    </p>
+
+    <h2 style="color: #00ff6a; font-size: 24px; margin: 60px 0 20px;">
+      Specail Services
+    </h2>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between;">
+      <div style="flex: 1 1 300px; min-width: 280px;">
+        <h3 style="color: #00ff6a; font-size: 20px; margin-bottom: 10px;">
+          Always Available – 24/7 Escort Services in Gurgaon
+        </h3>
+        <p style="color: #ccc; font-size: 15px; line-height: 1.8; margin-bottom: 20px;">
+          At GYTN, we believe that pleasure and connection should never be limited by time. That’s why our premium escort services in Gurgaon are available 24 hours a day, 7 days a week. Whether it’s a spontaneous need or a well-planned evening, we’re here to deliver unforgettable companionship—whenever you desire.
+        </p>
+        <a href="#" style="display: inline-block; background-color: #00ff6a; color: black; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 14px;">Contact Us</a>
+      </div>
+
+      <div style="flex: 1 15px; min-width: 280px;">
+        <img src="1.png" alt="Special Service" style="max-width: 100%; border-radius: 8px; display: block;" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="profile-section">
+  <div class="container">
+
+    <!-- Block 1 -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 40px;">
+      <div style="flex: 1 1 15px;">
+        <img src="1.png" alt="Mood Any Hour" style="max-width: 100%; border-radius: 8px; display: block;" />
+      </div>
+      <div style="flex: 1 1 300px;">
+        <h3 style="color: #00ff6a; font-size: 20px; margin-bottom: 10px;">For Every Mood, At Any Hour</h3>
+        <p style="color: #ccc; font-size: 15px; line-height: 1.8; margin-bottom: 20px;">
+          Whether you’re seeking a cozy midnight rendezvous, an early morning muse, or companionship during a quiet afternoon, our escorts are ready to make your moments special. GYTN offers flexibility to suit your lifestyle, no matter the time of day.
+        </p>
+        <a href="#" style="display: inline-block; background-color: #00ff6a; color: black; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 14px;">Contact Us</a>
+      </div>
+    </div>
+
+    <!-- Block 2 -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; flex-direction: row-reverse; margin-bottom: 40px;">
+      <div style="flex: 1 1 15px;">
+        <img src="1.png" alt="Scheduled Anytime" style="max-width: 100%; border-radius: 8px; display: block;" />
+      </div>
+      <div style="flex: 1 1 300px;">
+        <h3 style="color: #00ff6a; font-size: 20px; margin-bottom: 10px;">Spontaneous or Scheduled – Always On Time</h3>
+        <p style="color: #ccc; font-size: 15px; line-height: 1.8; margin-bottom: 20px;">
+          We know that desires don’t follow a routine. With just a quick booking, our escorts can be at your side—whether it’s short notice or a date arranged in advance. Our punctual, professional service guarantees satisfaction without the wait.
+        </p>
+        <a href="#" style="display: inline-block; background-color: #00ff6a; color: black; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 14px;">Contact Us</a>
+      </div>
+    </div>
+
+    <!-- Block 3 -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
+      <div style="flex: 1 1 15px;">
+        <img src="1.png" alt="Confidential" style="max-width: 100%; border-radius: 8px; display: block;" />
+      </div>
+      <div style="flex: 1 1 300px;">
+        <h3 style="color: #00ff6a; font-size: 20px; margin-bottom: 10px;">Seamless and Confidential Experience</h3>
+        <p style="color: #ccc; font-size: 15px; line-height: 1.8; margin-bottom: 20px;">
+          Client privacy is at the heart of everything we do. GYTN uses encrypted systems and discreet booking processes to ensure that your experience is safe, secure, and strictly confidential from start to finish.
+        </p>
+        <a href="#" style="display: inline-block; background-color: #00ff6a; color: black; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 14px;">Contact Us</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="profile-section">
+  <div class="container">
+
+    <!-- Block 4 -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; margin-bottom: 40px;">
+      <div style="flex: 1 1 300px; min-width: 15px;">
+        <h3 style="color: #00ff6a; font-size: 20px; margin-bottom: 10px;">
+          Personalized Companionship Around the Clock
+        </h3>
+        <p style="color: #ccc; font-size: 15px; line-height: 1.8; margin-bottom: 20px;">
+          Our independent escorts are more than just attractive companions—they’re attentive listeners, engaging partners, and warm presences. Each session is tailored to your desires, ensuring every moment feels meaningful, relaxed, and genuinely enjoyable.
+        </p>
+        <a href="#" style="display: inline-block; background-color: #00ff6a; color: black; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 14px;">Contact Us</a>
+      </div>
+      <div style="flex: 1 1 15px; min-width: 250px;">
+        <img src="1.png" alt="Companionship Image" style="max-width: 100%; border-radius: 8px; display: block;" />
+      </div>
+    </div>
+
+    <!-- Block 5 -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; flex-direction: row-reverse; margin-bottom: 40px;">
+      <div style="flex: 1 1 300px; min-width: 15px;">
+        <h3 style="color: #00ff6a; font-size: 20px; margin-bottom: 10px;">
+          Your Perfect Partner is Just a Call Away
+        </h3>
+        <p style="color: #ccc; font-size: 15px; line-height: 1.8; margin-bottom: 20px;">
+          Why settle for loneliness when connection is just a call away? Day or night, GYTN is ready to help you meet the right companion. Explore premium 24/7 escort services in Gurgaon and elevate your personal experience—anytime you choose.
+        </p>
+        <a href="#" style="display: inline-block; background-color: #00ff6a; color: black; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 14px;">Contact Us</a>
+      </div>
+      <div style="flex: 1 1 15px; min-width: 250px;">
+        <img src="1.png" alt="Call Partner Image" style="max-width: 100%; border-radius: 8px; display: block;" />
+      </div>
+    </div>
+
+    <!-- Optional Placeholder for the "Filed sy realted Titel" section -->
+    <h2 style="color: #00ff6a; font-size: 24px; margin: 60px 0 20px; text-align: center;">
+      Filed sy realted Titel
+    </h2>
+
+  </div>
+</section>
+
+<section class="profile-section">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+
+      <!-- Card 1 -->
+      <div style="background: #111; border-radius: 10px; padding: 15px;">
+        <img src="1.png" alt="Hourly Escort" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;" />
+        <h3 style="color: #00ff6a; font-size: 16px; margin-bottom: 10px;">
+          Flexible and Personalized Hourly Escort Service
+        </h3>
+        <p style="color: #ccc; font-size: 14px; line-height: 1.6; margin-bottom: 15px;">
+          At GYTN, we offer the ultimate flexibility with our hourly escort service. Whether you're looking for a brief escape or a few hours of exciting companionship, our selection of independent escorts in Gurgaon can cater to your unique desires.
+        </p>
+        <a href="#" style="display: inline-block; background-color: #00ff6a; color: black; padding: 8px 18px; border-radius: 5px; text-decoration: none; font-size: 13px;">Contact Us</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="background: #111; border-radius: 10px; padding: 15px;">
+        <img src="1.png" alt="Elite Escorts" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;" />
+        <h3 style="color: #00ff6a; font-size: 16px; margin-bottom: 10px;">
+          Select from Elite Independent Escorts
+        </h3>
+        <p style="color: #ccc; font-size: 14px; line-height: 1.6; margin-bottom: 15px;">
+          Our exclusive selection includes top-rated independent female escorts, chosen for their beauty, charm, and professionalism. Each offers a unique experience to match your preferences.
+        </p>
+        <a href="#" style="display: inline-block; background-color: #00ff6a; color: black; padding: 8px 18px; border-radius: 5px; text-decoration: none; font-size: 13px;">Contact Us</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div style="background: #111; border-radius: 10px; padding: 15px;">
+        <img src="1.png" alt="Tailored Companions" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;" />
+        <h3 style="color: #00ff6a; font-size: 16px; margin-bottom: 10px;">
+          Tailored Companionship for Every Need
+        </h3>
+        <p style="color: #ccc; font-size: 14px; line-height: 1.6; margin-bottom: 15px;">
+          Whether it’s a short encounter or a longer, more intimate evening, we offer options to suit your schedule. Choose your ideal companion and enjoy a fulfilling experience.
+        </p>
+        <a href="#" style="display: inline-block; background-color: #00ff6a; color: black; padding: 8px 18px; border-radius: 5px; text-decoration: none; font-size: 13px;">Contact Us</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div style="background: #111; border-radius: 10px; padding: 15px;">
+        <img src="1.png" alt="Discreet Service" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;" />
+        <h3 style="color: #00ff6a; font-size: 16px; margin-bottom: 10px;">
+          Discreet, Professional, and Confidential
+        </h3>
+        <p style="color: #ccc; font-size: 14px; line-height: 1.6; margin-bottom: 15px;">
+          Our booking process ensures your privacy remains protected. From first inquiry to the end of the encounter, your experience stays confidential and professional.
+        </p>
+        <a href="#" style="display: inline-block; background-color: #00ff6a; color: black; padding: 8px 18px; border-radius: 5px; text-decoration: none; font-size: 13px;">Contact Us</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Special Services Section -->
+<section style="background-color: #000; padding: 50px 20px;">
+  <div style="max-width: 1200px; margin: auto;">
+    <h2 style="color: #00ff6a; font-size: 28px; text-align: center; margin-bottom: 40px;">
+      Special Services
+    </h2>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+      <!-- Card 1 -->
+      <div style="background: #111; border-radius: 10px; padding: 20px; flex: 1 1 300px; max-width: 330px;">
+        <img src="1.png" alt="Escort 1" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+        <h3 style="color: #00ff6a; font-size: 16px; margin-bottom: 10px;">
+          Unmatched Escort Companionship on MG Road
+        </h3>
+        <p style="color: #ccc; font-size: 14px; line-height: 1.6; margin-bottom: 15px;">
+          Finding premium independent escorts in MG Road can be a challenge—but GYTN makes it easy. Our service is designed to offer hassle-free bookings, premium companions, and total discretion. If you’re searching for someone who understands how to make your time truly unforgettable, our stunning escorts are the perfect match.
+        </p>
+        <a href="#" style="display: inline-block; background-color: #00ff6a; color: black; padding: 8px 16px; border-radius: 5px; text-decoration: none; font-size: 13px;">Read more</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="background: #111; border-radius: 10px; padding: 20px; flex: 1 1 300px; max-width: 330px;">
+        <img src="1.png" alt="Escort 2" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+        <h3 style="color: #00ff6a; font-size: 16px; margin-bottom: 10px;">
+          Elite Girls, Ready to Impress
+        </h3>
+        <p style="color: #ccc; font-size: 14px; line-height: 1.6; margin-bottom: 15px;">
+          Our models aren’t just gorgeous—they’re intelligent, charming, and know exactly how to keep you engaged. Whether you’re in the mood for a romantic evening or a thrilling late-night session, our escorts in MG Road are prepared to deliver experiences that are both sensual and satisfying.
+        </p>
+        <a href="#" style="display: inline-block; background-color: #00ff6a; color: black; padding: 8px 16px; border-radius: 5px; text-decoration: none; font-size: 13px;">Read more</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div style="background: #111; border-radius: 10px; padding: 20px; flex: 1 1 300px; max-width: 330px;">
+        <img src="1.png" alt="Escort 3" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+        <h3 style="color: #00ff6a; font-size: 16px; margin-bottom: 10px;">
+          Safe, Discreet & Effortless
+        </h3>
+        <p style="color: #ccc; font-size: 14px; line-height: 1.6; margin-bottom: 15px;">
+          Finding premium independent escorts in MG Road can be a challenge—but GYTN makes it easy. Our service is designed to offer hassle-free bookings, premium companions, and total discretion. If you’re searching for someone who understands how to make your time truly unforgettable, our stunning escorts are the perfect match.
+        </p>
+        <a href="#" style="display: inline-block; background-color: #00ff6a; color: black; padding: 8px 16px; border-radius: 5px; text-decoration: none; font-size: 13px;">Read more</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Top Section - Elegant Independent Escorts -->
+<section style="background-color: #000; padding: 50px 20px;">
+  <div style="max-width: 1000px; margin: auto; text-align: center;">
+    <h2 style="color: #00ff6a; font-size: 28px; font-weight: bold; margin-bottom: 20px;">
+      Elegant Independent Escorts in Gurgaon at <br> Competitive Rates
+    </h2>
+    <p style="color: #ccc; font-size: 15px; line-height: 1.8;">
+      Discover the charm and sophistication of GYTN's elite independent escorts in Gurgaon. Known for their grace, beauty, and experience, our companions provide a premium, unforgettable experience. Whether you're seeking comfort, connection, or intimate companionship, these stunning women deliver with poise and warmth. With their natural allure and high standards of service, you can count on them for a truly satisfying and personalized encounter—all while maintaining full privacy and affordability.
+    </p>
+  </div>
+</section>
+
+<!-- Green Section - Sensual Getaway -->
+<section style="background-color: #00ffb3; padding: 40px 20px;">
+  <div style="max-width: 900px; margin: auto; text-align: center;">
+    <h3 style="color: #000; font-size: 22px; font-weight: bold; margin-bottom: 15px;">
+      A Sensual Getway with Secy Gurgon Escorts
+    </h3>
+    <p style="color: #000; font-size: 14px; line-height: 1.8;">
+      Indulge in a world of luxury and sophistication with our stunning, professional escorts. Whether you're seeking captivating conversation, alluring companionship, or a private escape, our high-class escorts in Gurgaon provide an unforgettable experience that will leave you wanting more. Discover personalized encounters tailored to your desires—whenever you choose.
+    </p>
+  </div>
+</section>
+
+
+<!-- FAQ Section -->
+<section style="background-color: #000; padding: 60px 20px;">
+  <div style="max-width: 800px; margin: auto;">
+    <h2 style="text-align: center; color: #00ff88; font-size: 28px; margin-bottom: 40px;">
+      Frequently asked questions
+    </h2>
+
+    <!-- Question 1 (open by default) -->
+    <div onclick="toggleFAQ(this)" style="border-bottom: 1px solid #333; padding: 20px 0; cursor: pointer;">
+      <div style="display: flex; justify-content: space-between; align-items: center; color: #fff; font-weight: bold; font-size: 16px;">
+        What courses are offered at BSITSM?
+        <span style="color: #00ff88;">➖</span>
+      </div>
+      <div style="color: #ccc; font-size: 14px; line-height: 1.5; margin-top: 10px; display: block;">
+        We offer a variety of courses, including Technical Courses (IT, Engineering, Software Development), Management Courses (MBA, BBA, Business Administration), and Diploma Programs in vocational training.
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div onclick="toggleFAQ(this)" style="border-bottom: 1px solid #333; padding: 20px 0; cursor: pointer;">
+      <div style="display: flex; justify-content: space-between; align-items: center; color: #fff; font-weight: bold; font-size: 16px;">
+        Are the courses flexible for working professionals?
+        <span style="color: #00ff88;">➕</span>
+      </div>
+      <div style="color: #ccc; font-size: 14px; line-height: 1.5; margin-top: 10px; display: none;">
+        Yes, BSITSM provides flexible schedules for working professionals, including evening and weekend batches.
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div onclick="toggleFAQ(this)" style="border-bottom: 1px solid #333; padding: 20px 0; cursor: pointer;">
+      <div style="display: flex; justify-content: space-between; align-items: center; color: #fff; font-weight: bold; font-size: 16px;">
+        What is the duration of the courses at BSITSM?
+        <span style="color: #00ff88;">➕</span>
+      </div>
+      <div style="color: #ccc; font-size: 14px; line-height: 1.5; margin-top: 10px; display: none;">
+        The duration of courses varies from 6 months to 3 years depending on the program.
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div onclick="toggleFAQ(this)" style="border-bottom: 1px solid #333; padding: 20px 0; cursor: pointer;">
+      <div style="display: flex; justify-content: space-between; align-items: center; color: #fff; font-weight: bold; font-size: 16px;">
+        Are the courses offered at a reduced cost compared to other institutions?
+        <span style="color: #00ff88;">➕</span>
+      </div>
+      <div style="color: #ccc; font-size: 14px; line-height: 1.5; margin-top: 10px; display: none;">
+        Yes, BSITSM offers affordable education without compromising on quality.
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div onclick="toggleFAQ(this)" style="border-bottom: 1px solid #333; padding: 20px 0; cursor: pointer;">
+      <div style="display: flex; justify-content: space-between; align-items: center; color: #fff; font-weight: bold; font-size: 16px;">
+        How can I apply for admission to BSITSM?
+        <span style="color: #00ff88;">➕</span>
+      </div>
+      <div style="color: #ccc; font-size: 14px; line-height: 1.5; margin-top: 10px; display: none;">
+        You can apply online through our website or visit our campus for offline admission assistance.
+      </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div onclick="toggleFAQ(this)" style="border-bottom: 1px solid #333; padding: 20px 0; cursor: pointer;">
+      <div style="display: flex; justify-content: space-between; align-items: center; color: #fff; font-weight: bold; font-size: 16px;">
+        What facilities are available for students at BSITSM ?
+        <span style="color: #00ff88;">➕</span>
+      </div>
+      <div style="color: #ccc; font-size: 14px; line-height: 1.5; margin-top: 10px; display: none;">
+        BSITSM offers modern classrooms, computer labs, libraries, hostel facilities, and career counseling.
+      </div>
+    </div>
+
+    <!-- Question 7 -->
+    <div onclick="toggleFAQ(this)" style="border-bottom: 1px solid #333; padding: 20px 0; cursor: pointer;">
+      <div style="display: flex; justify-content: space-between; align-items: center; color: #fff; font-weight: bold; font-size: 16px;">
+        Is there any placement or career support after course completion?
+        <span style="color: #00ff88;">➕</span>
+      </div>
+      <div style="color: #ccc; font-size: 14px; line-height: 1.5; margin-top: 10px; display: none;">
+        Yes, we provide placement assistance and have tie-ups with leading companies.
+      </div>
+    </div>
+
+    <!-- Question 8 -->
+    <div onclick="toggleFAQ(this)" style="border-bottom: 1px solid #333; padding: 20px 0; cursor: pointer;">
+      <div style="display: flex; justify-content: space-between; align-items: center; color: #fff; font-weight: bold; font-size: 16px;">
+        Are the courses recognized and certified?
+        <span style="color: #00ff88;">➕</span>
+      </div>
+      <div style="color: #ccc; font-size: 14px; line-height: 1.5; margin-top: 10px; display: none;">
+        All courses are certified and recognized by relevant authorities and industries.
+      </div>
+    </div>
+
+    <!-- Question 9 -->
+    <div onclick="toggleFAQ(this)" style="border-bottom: 1px solid #333; padding: 20px 0; cursor: pointer;">
+      <div style="display: flex; justify-content: space-between; align-items: center; color: #fff; font-weight: bold; font-size: 16px;">
+        Does BSITSM offer online or distance learning options?
+        <span style="color: #00ff88;">➕</span>
+      </div>
+      <div style="color: #ccc; font-size: 14px; line-height: 1.5; margin-top: 10px; display: none;">
+        Yes, we offer both online and distance learning modes for several programs.
+      </div>
+    </div>
+
+    <!-- Blog Link -->
+    <div style="text-align: center; margin-top: 60px; font-size: 20px; font-weight: bold; color: #00ff88;">
+      Blog
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Cards Section -->
+<section style="background-color: #000; padding: 50px 20px;">
+  <div style="max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+    
+    <!-- Card 1 -->
+    <div style="background-color: #111; padding: 20px; text-align: left;">
+      <img src="1.png" alt="UX Review" style="width: 100%; height: auto; display: block; margin-bottom: 15px;">
+      <h3 style="color: #00ff88; font-size: 18px; font-weight: bold; margin-bottom: 10px;">
+        UX review presentations ➜
+      </h3>
+      <p style="color: #ccc; font-size: 14px; line-height: 1.5;">
+        How do you create compelling presentations that wow your colleagues and impress your managers?
+      </p>
+    </div>
+
+    <!-- Card 2 -->
+    <div style="background-color: #111; padding: 20px; text-align: left;">
+      <img src="1.png" alt="UX Review" style="width: 100%; height: auto; display: block; margin-bottom: 15px;">
+      <h3 style="color: #00ff88; font-size: 18px; font-weight: bold; margin-bottom: 10px;">
+        UX review presentations ➜
+      </h3>
+      <p style="color: #ccc; font-size: 14px; line-height: 1.5;">
+        How do you create compelling presentations that wow your colleagues and impress your managers?
+      </p>
+    </div>
+
+    <!-- Card 3 -->
+    <div style="background-color: #111; padding: 20px; text-align: left;">
+      <img src="1.png" alt="UX Review" style="width: 100%; height: auto; display: block; margin-bottom: 15px;">
+      <h3 style="color: #00ff88; font-size: 18px; font-weight: bold; margin-bottom: 10px;">
+        UX review presentations ➜
+      </h3>
+      <p style="color: #ccc; font-size: 14px; line-height: 1.5;">
+        How do you create compelling presentations that wow your colleagues and impress your managers?
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section style="background-color: #000; padding: 60px 20px;">
+  <h2 style="text-align: center; color: #00ff88; font-size: 28px; margin-bottom: 40px;">
+    Testimonials
+  </h2>
+  <div style="max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+    
+    <!-- Testimonial 1 -->
+    <div style="background-color: #111; padding: 20px; color: #ccc; border-radius: 8px;">
+      <p style="margin-bottom: 10px;">
+        I found the platform incredibly user-friendly. Posting an ad took just a few minutes, and the response was great. Definitely a trusted site for personal listings.
+      </p>
+      <strong style="color: #fff;">Ravi S., Ajmer</strong>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div style="background-color: #111; padding: 20px; color: #ccc; border-radius: 8px;">
+      <p style="margin-bottom: 10px;">
+        I appreciate the privacy and support this site offers. They review listings carefully and keep things professional. I've had a smooth experience every time.
+      </p>
+      <strong style="color: #fff;">Anita K., Jaipur</strong>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div style="background-color: #111; padding: 20px; color: #ccc; border-radius: 8px;">
+      <p style="margin-bottom: 10px;">
+        I posted a listing and started getting inquiries within hours. The reach is excellent, and I love how everything is managed discreetly.
+      </p>
+      <strong style="color: #fff;">Sahil R., Udaipur</strong>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- Tags Section -->
+<section style="background-color: #000; padding: 50px 20px; text-align: center;">
+  <h2 style="color: #00ff88; font-size: 28px; margin-bottom: 30px;">Tags</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+    <span style="background-color: #111; color: #00ff88; padding: 10px 15px; border-radius: 5px; font-size: 14px;">Ajmer Local Listings</span>
+    <span style="background-color: #111; color: #00ff88; padding: 10px 15px; border-radius: 5px; font-size: 14px;">Ajmer Local Listings</span>
+    <span style="background-color: #111; color: #00ff88; padding: 10px 15px; border-radius: 5px; font-size: 14px;">Ajmer Local Listings</span>
+    <!-- Repeat same span as needed -->
+    <!-- Example repeated 20 times -->
+    <span style="background-color: #111; color: #00ff88; padding: 10px 15px; border-radius: 5px; font-size: 14px;">Ajmer Local Listings</span>
+    <span style="background-color: #111; color: #00ff88; padding: 10px 15px; border-radius: 5px; font-size: 14px;">Ajmer Local Listings</span>
+    <span style="background-color: #111; color: #00ff88; padding: 10px 15px; border-radius: 5px; font-size: 14px;">Ajmer Local Listings</span>
+    <span style="background-color: #111; color: #00ff88; padding: 10px 15px; border-radius: 5px; font-size: 14px;">Ajmer Local Listings</span>
+    <span style="background-color: #111; color: #00ff88; padding: 10px 15px; border-radius: 5px; font-size: 14px;">Ajmer Local Listings</span>
+    <span style="background-color: #111; color: #00ff88; padding: 10px 15px; border-radius: 5px; font-size: 14px;">Ajmer Local Listings</span>
+    <span style="background-color: #111; color: #00ff88; padding: 10px 15px; border-radius: 5px; font-size: 14px;">Ajmer Local Listings</span>
+    <span style="background-color: #111; color: #00ff88; padding: 10px 15px; border-radius: 5px; font-size: 14px;">Ajmer Local Listings</span>
+    <span style="background-color: #111; color: #00ff88; padding: 10px 15px; border-radius: 5px; font-size: 14px;">Ajmer Local Listings</span>
+    <span style="background-color: #111; color: #00ff88; padding: 10px 15px; border-radius: 5px; font-size: 14px;">Ajmer Local Listings</span>
+    <span style="background-color: #111; color: #00ff88; padding: 10px 15px; border-radius: 5px; font-size: 14px;">Ajmer Local Listings</span>
+  </div>
+</section>
+
+<!-- Report Abuse Section -->
+<section style="background-color: #000; padding: 40px 20px; text-align: center;">
+  <p style="color: #f00; font-size: 16px; margin-bottom: 15px;">
+    ⚠️ Report Abuse
+  </p>
+  <p style="color: #ccc; font-size: 14px; max-width: 800px; margin: auto;">
+    At CallGirl.com, we are committed to maintaining a safe and respectful online environment. If you come across any content that you believe is abusive, misleading, offensive, illegal, or violates our terms of service, please report it to us immediately.
+  </p>
+</section>
+
+<!-- Footer Section -->
+<footer style="background-color: #00ff88; color: #000; padding: 50px 20px;">
+  <div style="max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px;">
+    
+    <div>
+      <h3 style="font-size: 20px; margin-bottom: 15px;">GYTN</h3>
+      <p style="font-size: 14px; line-height: 1.5;">
+        Step into a world of charm and connection with GYTN's premium escort services in Gurgaon. We offer a handpicked selection of sophisticated, elegant companions.
+      </p>
+      <p style="font-size: 12px; margin-top: 20px;">
+        CAUTION! CALLGIRL.COM
+        <br><br>
+        We do not engage in or promote activities related to prostitution or escort services. Additionally, we are not responsible for the content, links, contact information, or services found on external websites that may be linked here. Please use your discretion when interacting with third-party sources. Always verify authenticity and ensure you're dealing with legitimate and trustworthy individuals or services. Use this platform responsibly.
+      </p>
+    </div>
+
+    <div>
+      <h4 style="font-size: 16px; margin-bottom: 10px;">Main Menu</h4>
+      <p style="font-size: 14px;">Home</p>
+      <p style="font-size: 14px;">Escorts</p>
+      <p style="font-size: 14px;">Rates</p>
+      <p style="font-size: 14px;">FAQs</p>
+      <p style="font-size: 14px;">Blog</p>
+      <p style="font-size: 14px;">Contact Us</p>
+    </div>
+
+    <div>
+      <h4 style="font-size: 16px; margin-bottom: 10px;">Categories</h4>
+      <p style="font-size: 14px;">Russian Girls</p>
+      <p style="font-size: 14px;">High Profile</p>
+      <p style="font-size: 14px;">College Girls</p>
+      <p style="font-size: 14px;">Air Hostess</p>
+      <p style="font-size: 14px;">VIP Call</p>
+      <p style="font-size: 14px;">Call Girls</p>
+    </div>
+
+    <div>
+      <h4 style="font-size: 16px; margin-bottom: 10px;">Gurgaon Locations</h4>
+      <p style="font-size: 14px;">DLF City</p>
+      <p style="font-size: 14px;">Sushant Lok</p>
+      <p style="font-size: 14px;">MG Road</p>
+      <p style="font-size: 14px;">Manesar</p>
+      <p style="font-size: 14px;">South City</p>
+      <p style="font-size: 14px;">Cyber City</p>
+    </div>
+
+    <div>
+      <h4 style="font-size: 16px; margin-bottom: 10px;">Social</h4>
+      <p style="font-size: 14px;">Twitter</p>
+      <p style="font-size: 14px;">Instagram</p>
+      <p style="font-size: 14px;">Facebook</p>
+    </div>
+
+    <div>
+      <h4 style="font-size: 16px; margin-bottom: 10px;">Legal</h4>
+      <p style="font-size: 14px;">Terms</p>
+      <p style="font-size: 14px;">Privacy</p>
+      <p style="font-size: 14px;">Cookies</p>
+      <p style="font-size: 14px;">Licenses</p>
+      <p style="font-size: 14px;">Settings</p>
+      <p style="font-size: 14px;">Contact</p>
+    </div>
+
+    <div>
+      <h4 style="font-size: 16px; margin-bottom: 10px;">Contact Details</h4>
+      <p style="font-size: 14px;">+31-5555555555</p>
+      <p style="font-size: 14px;">gytn@gmail.com</p>
+    </div>
+  </div>
+
+  <p style="text-align: center; font-size: 12px; margin-top: 40px;">© 2025 GYTN. All rights reserved.</p>
+</footer>
+
+
+
+
+  <!-- JS for hamburger menu toggle -->
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navMenu");
+      nav.classList.toggle("active");
+    }
+
+ function toggleFAQ(element) {
+    const answer = element.querySelector('div:nth-child(2)');
+    const icon = element.querySelector('span');
+
+    const isOpen = answer.style.display === 'block';
+
+    // Close all FAQs first
+    document.querySelectorAll('section div[onclick]').forEach(faq => {
+      faq.querySelector('div:nth-child(2)').style.display = 'none';
+      faq.querySelector('span').textContent = '➕';
+    });
+
+    // Toggle current one
+    if (!isOpen) {
+      answer.style.display = 'block';
+      icon.textContent = '➖';
+    }
+  }
+
+
+  </script>
+
+</body>
+</html>
